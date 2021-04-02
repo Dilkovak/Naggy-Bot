@@ -1,10 +1,1 @@
-# TODO
-# Exchange text for big images emotes
-# Check (kick?) people who havent spoken in (3) months? (if gets enough reaction votes it executes the kick)
-# Music?
-# Daily message (tip/meme/quote)
-# coinflip
-# server information (usage/temp)
-# Thanos snap?
-# critical news updates (only high tier news)
 
