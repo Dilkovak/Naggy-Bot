@@ -1,5 +1,6 @@
 from config import TOKEN
 from client import MyClient
+import discord
 
 def main():
     client = MyClient()
