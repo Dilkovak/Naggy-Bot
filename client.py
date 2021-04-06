@@ -1,30 +1,22 @@
 import time
 from functionalities import coinflip
+from discord.ext import commands
+import discord
 
+class BotUtility(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self._last_member = None
+    
+    @commands.Cog.listener()
+    async def on_ready(self):
+          print(f'We have logged in as {self.bot.user}')
 
-# TODO change to use Bot not client as it there is more to offer there
+    @commands.command()
+    async def testing(self, ctx):
+        await ctx.send("testing")
 
-# class MyClient(discord.Client):
-#     async def on_ready(self):
-#         print('Logged on as {0}!'.format(self.user))
-
-#     async def on_message(self, message):
-#         content = message.content.split()
-#         if content[0] == 'Nag':
-#             if 'ping' in content:
-#                 print(discord.Client.latency)
-#                 await message.channel.send("Pong  🏓")
-#             if 'coin' in content:
-#                 coin_result = coinflip()
-#                 print(coin_result)
-#                 if coin_result < 0.50:
-#                     await message.channel.send('Hello!')
-#                 else: 
-#                     await message.channel.send('Hello2!')
-#                 # await message.channel.send('Hello!') if (coin_result < 0.50) else await message.channel.send('Hello2!')
-#                 # await message.channel.send('Hello!')
-#                 # coinflip()
-
-
-#     async def on_typing(self, channel, user, when):
-#         print(user)
+    @commands.command()
+    async def ping(self, ctx):
+        latency = self.bot.latency
+        await ctx.send(latency)
