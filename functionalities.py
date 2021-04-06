@@ -1,4 +1,5 @@
 import random
 
 def coinflip():
-    print(random.random())
+    # print(random.random())
+    return random.random()
