@@ -14,7 +14,12 @@ class BotUtility(commands.Cog):
 
     @commands.command()
     async def testing(self, ctx):
-        await ctx.send("testing")
+        embedVar = discord.Embed(title="Title", description="Desc", color=0x00ff00)
+        embedVar.add_field(name="Field1", value="hi", inline=False)
+        embedVar.add_field(name="Field2", value="hi2", inline=False)
+        embedVar.set_footer(text="footer")
+        await ctx.send(embed=embedVar)
+        # await ctx.send("testing")
 
     @commands.command()
     async def ping(self, ctx):
