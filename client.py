@@ -12,7 +12,8 @@ class BotUtility(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-          print(f'We have logged in as {self.bot.user}')
+        print(self.bot.user.avatar_url)
+        print(f'We have logged in as {self.bot.user}')
 
     @commands.command()
     async def testing(self, ctx):
@@ -24,7 +25,8 @@ class BotUtility(commands.Cog):
         await ctx.send(latency)
 
     @commands.command()
-    async def system_info(self, ctx):
+    async def sysinfo(self, ctx):
+        # TODO add image bot in title
         memory = psutil.virtual_memory()
         cpu_load = [x / psutil.cpu_count() * 100 for x in psutil.getloadavg()]
         embedVar = discord.Embed(title="Naggy's System Information 🖥", color=0x00ff00)
@@ -36,10 +38,3 @@ class BotUtility(commands.Cog):
         embedVar.add_field(name="Available", value=f"{round(memory.available / 1024 / 1024, 2)} MB", inline=True)
         embedVar.add_field(name="Available %", value=f"{100 - memory.percent}%", inline=True)
         await ctx.send(embed=embedVar)
-
-    # plaftorm.processor() for processor
-    # platform.platform() os info (imight not need processor)
-    # platform.system() shows linux
-    # psutil for ram usage (cpu usage?)
-    # cpu_load = [x / psutil.cpu_count() * 100 for x in psutil.getloadavg()]
-    # sum(cpu_load) / len(cpu_load)
